@@ -107,6 +107,7 @@ const controlUploadRecipe = async function (dataArr) {
   // console.log(log);
 };
 const innit = function () {
+  console.log('Welcome to the Application');
   recipeView.addhandlerRender(getReciepe);
   recipeView.handlerServings(controlServings);
   searchView.addhandlerRender(getSearchResults);

@@ -28,8 +28,6 @@ const recipeObject = function (data) {
 export const loadRecipe = async function (id) {
   try {
     const data = await AJAX(`${API_URL}${id}`);
-    // let { recipe } = convertReq.data;
-    // console.log(recipe);
     state.recipe = recipeObject(data);
     if (!state.bookmarksArray) return;
     if (state.bookmarksArray.some(bookmark => bookmark.id === id))
@@ -45,7 +43,6 @@ export const loadSearch = async function (query) {
     state.search.query = query;
     state.search.pageNum = 1;
     const convertReq = await AJAX(`${API_URL}?search=${query}?key=${KEYurl}`);
-    console.log(convertReq);
     // if (!req.ok) throw new Error(convertReq.message);
     state.search.searchResults = convertReq.results;
     state.search.results = convertReq.data.recipes.map(rec => {
